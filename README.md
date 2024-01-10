@@ -18,7 +18,7 @@ Here, we have our regression problem statement: given someone's resting rate, th
 
 ##  Packages in-use
 
-- sklearn
+- scikit-learn
 - xgboost
 - seaborn
 - matplotlib
