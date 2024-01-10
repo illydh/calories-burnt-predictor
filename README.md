@@ -6,7 +6,7 @@ So, when I came across this data set after having just completed a semester of i
 
 ##  Background knowledge
 
-#   What happens when we exercise?
+###   What happens when we exercise?
 
 Whether we are lifting weights or going on a casual run, our bodies operate off of the fuel we provide ourselves through the foods that we consume.
 
