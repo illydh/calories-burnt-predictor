@@ -1,5 +1,5 @@
-##  PREAMBLE
+##  Preamble
 
-##  BACKGROUND KNOWLEDGE
+##  Background knowledge
 
-##  GETTING STARTED
+##  Getting started
