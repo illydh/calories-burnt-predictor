@@ -138,6 +138,7 @@ calories_data.replace(
 correlation = calories_data.corr()
 
 #   constructing a heatmap to interpret correlation
+'''
 plt.figure(figsize=(10,10))
 sns.heatmap(
     correlation, 
@@ -149,3 +150,73 @@ sns.heatmap(
     cmap='Blues'  
     )
 plt.show()
+'''
+
+###   SEPARATING FEATURES AND TARGET
+
+x = calories_data.drop(columns=['User_ID', 'Calories'], axis=1)     #   these columns are of no use in this analysis
+y = calories_data['Calories']       #   store this specific column 
+
+#print(x)
+''' Output:
+       Gender  Age  Height  Weight  Duration  Heart_Rate  Body_Temp
+0           0   68   190.0    94.0      29.0       105.0       40.8
+1           1   20   166.0    60.0      14.0        94.0       40.3
+2           0   69   179.0    79.0       5.0        88.0       38.7
+3           1   34   179.0    71.0      13.0       100.0       40.5
+4           1   27   154.0    58.0      10.0        81.0       39.8
+...       ...  ...     ...     ...       ...         ...        ...
+14995       1   20   193.0    86.0      11.0        92.0       40.4
+14996       1   27   165.0    65.0       6.0        85.0       39.2
+14997       1   43   159.0    58.0      16.0        90.0       40.1
+14998       0   78   193.0    97.0       2.0        84.0       38.3
+14999       0   63   173.0    79.0      18.0        92.0       40.5
+'''
+#print(y)
+''' Output:
+0        231.0
+1         66.0
+2         26.0
+3         71.0
+4         35.0
+         ...  
+14995     45.0
+14996     23.0
+14997     75.0
+14998     11.0
+14999     98.0
+'''
+
+###     SPLITTING DATA INTO TRAINING AND TEST DATA
+
+x_train, x_test, y_train, y_test = train_test_split(x,y, test_size=0.2, random_state=2)
+#print(x.shape, x_train.shape, x_test.shape)
+''' Output:
+    (15000, 7) 
+    (12000, 7) 
+    (3000, 7)
+'''
+
+###     MODEL TRAINING  
+
+#   loading model
+model = XGBRegressor()
+
+#   training model with x_train
+model.fit(x_train, y_train) 
+
+###     EVALUATION
+
+#   prediction on test data
+test_data_prediction = model.predict(x_test)
+#print(test_data_prediction)
+''' Output:
+    [125.58828  222.11377   38.725952 ... 144.3179    23.425894  90.100494]
+'''
+
+#   mean absolute error
+mae = metrics.mean_absolute_error(y_test, test_data_prediction)
+#print(f"Mean Absolute Error := {mae}")
+''' Output:
+    Mean Absolute Error := 1.4833678883314132   #   very minuscule difference
+'''
