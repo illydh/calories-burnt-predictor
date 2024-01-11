@@ -28,3 +28,20 @@ Here, we have our regression problem statement: given someone's resting rate, th
 ##  Getting started
 
 The dataset: https://www.kaggle.com/datasets/fmendes/fmendesdat263xdemos?resource=download
+
+##  Tables
+
+`#   plotting the gender column in count plot`
+![gender-vs-count](https://github.com/illydh/threads-clone/assets/133312266/2629ecb7-1924-4447-b14a-9fde4ca350f1)
+
+`#   finding the distribution of "Age"`
+![age-distribution](https://github.com/illydh/threads-clone/assets/133312266/59c5fef2-72fb-48b7-a3c6-21c390f73560)
+
+`#   finding the distribution of "Height"`
+![height-distribution](https://github.com/illydh/threads-clone/assets/133312266/6a57f702-dfb8-497b-82a5-e0d99c1a8c18)
+
+`#   finding the distribution of "Weight"`
+![weight-distribution](https://github.com/illydh/threads-clone/assets/133312266/c29a02da-514c-4194-875a-03c05b3dc309)
+
+`#   constructing a heatmap to interpret correlation`
+![correlation-heatmap](https://github.com/illydh/threads-clone/assets/133312266/e8c4cfb3-c629-4142-a238-9b80b907ae59)

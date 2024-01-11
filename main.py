@@ -87,3 +87,65 @@ dtype: int64
 '''
 
 ###     DATA ANALYSIS
+
+#   get some statistical measures about the data
+#print(calories_data.describe())
+''' Output:
+            User_ID           Age  ...     Body_Temp      Calories
+count  1.500000e+04  15000.000000  ...  15000.000000  15000.000000
+mean   1.497736e+07     42.789800  ...     40.025453     89.539533
+std    2.872851e+06     16.980264  ...      0.779230     62.456978
+min    1.000116e+07     20.000000  ...     37.100000      1.000000
+25%    1.247419e+07     28.000000  ...     39.600000     35.000000
+50%    1.499728e+07     39.000000  ...     40.200000     79.000000
+75%    1.744928e+07     56.000000  ...     40.600000    138.000000
+max    1.999965e+07     79.000000  ...     41.500000    314.000000
+
+'''
+
+###     DATA VISUALIZATION
+
+sns.set()       #   gives a theme of our plot
+
+#   plotting the gender column in count plot
+#sns.countplot(calories_data['Gender'])
+#plt.show()
+
+#   finding the distribution of "Age"
+#sns.distplot(calories_data['Age'])
+#plt.show()
+
+#   finding the distribution of "Height"
+#sns.distplot(calories_data['Height'])
+#plt.show()
+
+#   finding the distribution of "Weight"
+#sns.distplot(calories_data['Weight'])
+#plt.show()
+
+###     CONVERTING STR TO NUM VALUES (machine cannot interpret str)
+
+calories_data.replace(
+    {'Gender':
+     {'male':0, 
+      'female':1
+      }
+    }, 
+    inplace=True)
+
+###     FINDING THE CORRELATION IN THE DATASET (positive or negative)
+
+correlation = calories_data.corr()
+
+#   constructing a heatmap to interpret correlation
+plt.figure(figsize=(10,10))
+sns.heatmap(
+    correlation, 
+    cbar=True, 
+    square=True, 
+    fmt='.1f', 
+    annot=True, 
+    annot_kws={'size':8},   
+    cmap='Blues'  
+    )
+plt.show()
